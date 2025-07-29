@@ -1,0 +1,10 @@
+= Spring Framework 7
+:toc:
+:toc-placement:
+:toclevels: 3
+
+Spring Framework 7 will release on
+
+== Thoughts
+
+== References
