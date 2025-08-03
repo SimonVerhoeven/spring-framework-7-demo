@@ -5,6 +5,16 @@
 
 Spring Framework 7 will release on
 
+== Upgrading
+
+=== Spring JCL has been retired
+
+This module has been removed in favour of Apache commons logging, as this was a transitive dependency and the API calls aren't changing you should experience no impact.
+
+=== Removal of support for `javax.annotation` and `java.inject`
+
+These annotations are no longer supported, and the `jakarta` equivalent should be used.
+
 == Thoughts
 
 == References
