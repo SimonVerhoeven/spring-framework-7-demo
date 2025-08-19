@@ -3,7 +3,7 @@
 :toc-placement:
 :toclevels: 3
 
-Spring Framework 7 will release on
+Spring Framework 7 will release in November 2025.
 
 == Upgrading
 
