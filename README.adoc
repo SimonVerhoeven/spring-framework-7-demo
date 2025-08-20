@@ -38,3 +38,5 @@ I recommend looking at the https://docs.spring.io/spring-framework/reference/7.0
 == Thoughts
 
 == References
+
+* https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes [Spring framework 7 release notes]
