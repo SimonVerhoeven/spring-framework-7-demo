@@ -24,7 +24,16 @@ For example:
 * `matchOptionalTrailingSeparator`
 * `ignoreUnknownPathExtensions`
 * `trailingSlashMatch`
-* `PathExtensionContentNegotiationStrategy `
+* `PathExtensionContentNegotiationStrategy`
+
+== New
+
+=== RestTestClient
+
+This non-reactive variant of `WebTestClient` can be used toi test live servers, and mock setups with a flkuent API.
+It can be bound to a live server, an MVC `@Controller` or the application context.
+
+I recommend looking at the https://docs.spring.io/spring-framework/reference/7.0-SNAPSHOT/testing/resttestclient.html#page-title[official documentation].
 
 == Thoughts
 
