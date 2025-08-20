@@ -15,6 +15,17 @@ This module has been removed in favour of Apache commons logging, as this was a 
 
 These annotations are no longer supported, and the `jakarta` equivalent should be used.
 
+=== Removal of deprecated path mapping options
+
+The path mapping options that were marked as deprecated in 6.0 have been removed.
+
+For example:
+
+* `matchOptionalTrailingSeparator`
+* `ignoreUnknownPathExtensions`
+* `trailingSlashMatch`
+* `PathExtensionContentNegotiationStrategy `
+
 == Thoughts
 
 == References
