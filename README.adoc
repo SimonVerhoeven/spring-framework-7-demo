@@ -5,6 +5,18 @@
 
 Spring Framework 7 will release in November 2025.
 
+== Minimum requirement changes
+
+Certain baselines have been raised, so keep these in mind if you're using them:
+
+* A Servlet 6.1 compatible container
+* JPA 3.2
+* Bean Validation 3.1
+* GraalVM 24 with the https://www.graalvm.org/latest/reference-manual/native-image/metadata/[new extract reachability metadata format]
+* Kotlin 2.2
+*  Netty 4.2
+* JSONAssert 2.0
+
 == Upgrading
 
 === Spring JCL has been retired
