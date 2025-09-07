@@ -39,6 +39,12 @@
 			<version>${spring.boot.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-broker</artifactId>
+            <version>6.1.7</version>
+        </dependency>
 	</dependencies>
 
 	<build>
