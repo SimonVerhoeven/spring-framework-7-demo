@@ -60,6 +60,15 @@ I recommend looking at the https://docs.spring.io/spring-framework/reference/7.0
 
 As of this release an application context cache in the test context cache will be stopped when it is no longer in active use, and will automatically restart it as needed. This helps reduce the number of running background processes.
 
+== Varia
+
+As always, there are changes under the hood that developers might not notice, but will certainly offer benefits.
+
+=== Class-file API usage for Java 24+ applications
+
+Spring will now leverage the new class-file API introduced in https://openjdk.org/jeps/484[JEP-484] to read and write classes as Java bytecode instead of the classical reduced ASM fork that was being used.
+This change will be fully transparant for applications.
+
 == Thoughts
 
 == References
