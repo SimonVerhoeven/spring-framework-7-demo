@@ -40,6 +40,11 @@ For example:
 
 == New
 
+=== API versioning
+
+Both Spring MVC and WebFlux now easily allow us to version our requests.
+We can configure how these versions are resolve, parsed, validated and even mark versions as deprecated to notify our consumers! The various `Client` classes such as `RestClient` and `WebTestClient` have also been enhanced so we can easily set the API version on requests.
+
 === BeanRegistrar
 
 More flexible bean registration has been a wish for many of us for a long time, and this release addresses it. The new `BeanRegistrar` contract allows us to apply more complex logic, and register multiple beans.
