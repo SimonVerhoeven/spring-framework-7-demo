@@ -40,6 +40,10 @@ For example:
 
 == New
 
+=== BeanRegistrar
+
+More flexible bean registration has been a wish for many of us for a long time, and this release addresses it. The new `BeanRegistrar` contract allows us to apply more complex logic, and register multiple beans.
+
 === RestTestClient
 
 This non-reactive variant of `WebTestClient` can be used toi test live servers, and mock setups with a fluent API.
