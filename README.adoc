@@ -74,6 +74,11 @@ private String name;
 
 As of this release an application context cache in the test context cache will be stopped when it is no longer in active use, and will automatically restart it as needed. This helps reduce the number of running background processes.
 
+=== Http Interface Client support for `Input-` and `OutputStream`
+
+The client now supports streaming request and response bodies using `Input-` and `OutputStream` respectively.
+This quite a useful enhancement when dealing with large volumes of data, given that not everything needs to be loaded in memory anymore. This will facilitate scaling and improve the performance.
+
 == Varia
 
 As always, there are changes under the hood that developers might not notice, but will certainly offer benefits.
