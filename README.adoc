@@ -29,14 +29,12 @@ These annotations are no longer supported, and the `jakarta` equivalent should b
 
 === Removal of deprecated path mapping options
 
-The path mapping options that were marked as deprecated in 6.0 have been removed.
+Several path mapping options marked as deprecated in 6.0 have been removed such as:
 
-For example:
-
-* `matchOptionalTrailingSeparator`
-* `ignoreUnknownPathExtensions`
-* `trailingSlashMatch`
-* `PathExtensionContentNegotiationStrategy`
+* `suffixPatternMatch`/`registeredSuffixPatternMatch` for annotated controller methods
+* `trailingSlashMatch` for extensions of `AbstractHandlerMapping`
+* `favorPathExtension`/`ignoreUnknownPathExtensions` and underlying `PathExtensionContentNegotiationStrategy` and `ServletPathExtensionContentNegotiationStrategy` for content negotiation, configurable through `ContentNegotiationManagerFactoryBean` and in the MVC Java config
+* `matchOptionalTrailingSeparator` in `PathPatternParser`
 
 == New
 
