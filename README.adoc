@@ -36,6 +36,15 @@ Several path mapping options marked as deprecated in 6.0 have been removed such 
 * `favorPathExtension`/`ignoreUnknownPathExtensions` and underlying `PathExtensionContentNegotiationStrategy` and `ServletPathExtensionContentNegotiationStrategy` for content negotiation, configurable through `ContentNegotiationManagerFactoryBean` and in the MVC Java config
 * `matchOptionalTrailingSeparator` in `PathPatternParser`
 
+=== Varia
+
+There have also been a wide variety of smaller changes:
+
+* `ListenableFuture` in favour of `CompletableFuture`
+* Removal of `WebJars` support with `org.webjars:webjars-locator-core` in favour of `org.webjars:webjars-locator-lite`
+* Removal of `OkHttp3 support`
+* Renaming of `RequestContext#jstPresent` protected static field to `JSTL_PRESENT`.
+
 == New
 
 === API versioning
