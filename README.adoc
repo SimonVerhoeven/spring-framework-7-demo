@@ -36,6 +36,12 @@ Several path mapping options marked as deprecated in 6.0 have been removed such 
 * `favorPathExtension`/`ignoreUnknownPathExtensions` and underlying `PathExtensionContentNegotiationStrategy` and `ServletPathExtensionContentNegotiationStrategy` for content negotiation, configurable through `ContentNegotiationManagerFactoryBean` and in the MVC Java config
 * `matchOptionalTrailingSeparator` in `PathPatternParser`
 
+=== Removal of Undertow support
+
+A Servlet 6.1 compatible container is needed; this also means that the undertow starter, and ability to use it as an embedded server has been dropped as Undertow is not compatible yet.
+
+When a Servlet 6.1 compatible container is available Undertow can still be used as a deployed server using the standard servlet support.
+
 === Varia
 
 There have also been a wide variety of smaller changes:
