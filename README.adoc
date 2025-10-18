@@ -53,6 +53,10 @@ There have also been a wide variety of smaller changes:
 
 == New
 
+=== JSpecify
+
+`JSpecify` nullability annotations have been added, thus if you're using Kotlin or a null checker in your build, a compilation failure might happen because some types might now be (non-)nullable. The Spring nullability annotations have been deprecated in favour of these.
+
 === API versioning
 
 Both Spring MVC and WebFlux now easily allow us to version our requests.
