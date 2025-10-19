@@ -3,7 +3,7 @@
 :toc-placement:
 :toclevels: 3
 
-Spring Framework 7 will release in November 2025.
+Spring Framework 7 will be released in November 2025.
 
 == Minimum requirement changes
 
@@ -21,7 +21,7 @@ Certain baselines have been raised, so keep these in mind if you're using them:
 
 === Spring JCL has been retired
 
-This module has been removed in favour of Apache commons logging, as this was a transitive dependency and the API calls aren't changing you should experience no impact.
+This module has been removed in favour of Apache Commons logging, as this was a transitive dependency and the API calls aren't changing you should experience no impact.
 
 === Removal of support for `javax.annotation` and `java.inject`
 
@@ -40,7 +40,7 @@ Several path mapping options marked as deprecated in 6.0 have been removed such 
 
 A Servlet 6.1 compatible container is needed; this also means that the undertow starter, and ability to use it as an embedded server has been dropped as Undertow is not compatible yet.
 
-When a Servlet 6.1 compatible container is available Undertow can still be used as a deployed server using the standard servlet support.
+When a Servlet 6.1 compatible container is available, Undertow can still be used as a deployed server using the standard servlet support.
 
 === Varia
 
@@ -75,7 +75,7 @@ I recommend looking at the https://docs.spring.io/spring-framework/reference/7.0
 
 === Easier message converters configuration
 
-We can now more easily setup, and facilitate the detection of HTTP message converters through `HttpMessageConverters`, which we can for example leverage in `WebMvcConfigurer#configureMessageConverters`.
+We can now more easily set up, and facilitate the detection of HTTP message converters through `HttpMessageConverters`, which we can, for example, leverage in `WebMvcConfigurer#configureMessageConverters`.
 
 === Enhanced `Optional` support in SpEL expressions
 
@@ -89,12 +89,12 @@ private String name;
 
 === Test application context pausing
 
-As of this release an application context cache in the test context cache will be stopped when it is no longer in active use, and will automatically restart it as needed. This helps reduce the number of running background processes.
+As of this release, an application context cache in the test context cache will be stopped when it is no longer in active use and will automatically restart it as needed. This helps reduce the number of running background processes.
 
 === Http Interface Client support for `Input-` and `OutputStream`
 
 The client now supports streaming request and response bodies using `Input-` and `OutputStream` respectively.
-This quite a useful enhancement when dealing with large volumes of data, given that not everything needs to be loaded in memory anymore. This will facilitate scaling and improve the performance.
+This is quite a useful enhancement when dealing with large volumes of data, given that not everything needs to be loaded in memory anymore. This will facilitate scaling and improve the performance.
 
 == Varia
 
