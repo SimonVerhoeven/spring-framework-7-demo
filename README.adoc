@@ -91,6 +91,13 @@ private String name;
 
 As of this release, an application context cache in the test context cache will be stopped when it is no longer in active use and will automatically restart it as needed. This helps reduce the number of running background processes.
 
+=== Improved Dependency Injection in `@Nested` Test Class Hierarchies
+
+The `SpringExtension` for `JUnit Jupiter` now supports dependency injection into test classes and fields in `@Nested` test class hierarchies using the same `ApplicationContext` that was used to perform dependency injection into lifecycle and test methods such as `@Test`, `@BeforeEach` et cetera.
+This facilitates a more consistent model for `@Nested` tests.
+
+Normally speaking, we shouldn't encounter any issues, but in case we do bump into some, we can reference this https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes#springextension-extension-context-scope[release note section].
+
 === Http Interface Client support for `Input-` and `OutputStream`
 
 The client now supports streaming request and response bodies using `Input-` and `OutputStream` respectively.
