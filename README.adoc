@@ -107,6 +107,8 @@ This is quite a useful enhancement when dealing with large volumes of data, give
 * `HandlerMappingIntrospector` has been deprecated given Spring Security works without this if all handler mappings use `PathPatternParser`, and the alternative `PathMatcher` is also deprecated.
 * Certain `HttpStatus` constants have been deprecated in favour of replacements that align more closely with https://www.rfc-editor.org/rfc/rfc9110.html[RFC9110].
 * `The org.springframework.web.servlet.view.document` and `org.springframework.web.servlet.view.feed` and all their types have been deprecated. The plan is for standalone libraries to enhance broader and more flexible support for these formats.
+* `BeanShell` scripting support has been deprecated since there is no active maintenance anymore
+* The `<lang:*` XML configuration namespace (used with `groovy` and `std` for example) is now deprecated as it's no longer being actively maintained. As it stands, there's no annotation-driven alternative, nor intent to provide one.
 
 == Varia
 
