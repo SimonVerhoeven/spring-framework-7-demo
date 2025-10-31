@@ -103,6 +103,10 @@ Normally speaking, we shouldn't encounter any issues, but in case we do bump int
 The client now supports streaming request and response bodies using `Input-` and `OutputStream` respectively.
 This is quite a useful enhancement when dealing with large volumes of data, given that not everything needs to be loaded in memory anymore. This will facilitate scaling and improve the performance.
 
+=== Context propagation for Kotlin Coroutines
+
+We can now add the new https://docs.spring.io/spring-framework/reference/7.0/languages/kotlin/coroutines.html#coroutines.propagation[PropagationContextElement] operator to our functions to enable context propagation. The Spring team is looking into ways to automate this in a future release.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
