@@ -19,6 +19,18 @@ Certain baselines have been raised, so keep these in mind if you're using them:
 
 == Upgrading
 
+=== SpringExtension - potentially breaking
+
+The `SpringExtension` which integrates the Spring TestContext Framework into JUnit Jupiter, has been adapted to use a test-method scoped `ExtensionContext`.
+This change facilitates consistent dependency injection semantics in `@Nested` test class hierarchies.
+
+There are 2 cases in which you may notice some breaking tests:
+
+1) If you have custom `TestExecutionListener` implementations.
+In this case annotatating the top-level class in such hierarchies with `@SpringExtensionConfig(useTestClassScopedExtensionContext = true)` should resolve the issue.
+
+2) In case you have a custom `TestExecutionListener` that overrides `prepareTestInstance(TestContext)` that suddenly no longer works, please alter the listener's implementation to look up the current test class via `testContext.getTestInstance().getClass()` instead of `testContext.getTestClass()`.
+
 === Spring JCL has been retired
 
 This module has been removed in favour of Apache Commons logging, as this was a transitive dependency and the API calls aren't changing you should experience no impact.
