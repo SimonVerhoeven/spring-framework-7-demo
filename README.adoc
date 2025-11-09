@@ -87,11 +87,13 @@ I recommend looking at the https://docs.spring.io/spring-framework/reference/7.0
 
 === Easier message converters configuration
 
-We can now more easily set up, and facilitate the detection of HTTP message converters through `HttpMessageConverters`, which we can, for example, leverage in `WebMvcConfigurer#configureMessageConverters`.
+We can now more easily set up, and facilitate the detection of HTTP message converters through `HttpMessageConverters`, which we can, for example, leverage in `WebMvcConfigurer#configureMessageConverters`, or `RestClient` and `RestTemplate`.
+
+
 
 === Enhanced `Optional` support in SpEL expressions
 
-We can now call null-safe operations ib `Optional` types with transparent mapping, and use the Elvis operator to automatically unwrap an `Optional`.
+We can now call null-safe operations in `Optional` types with transparent mapping, and use the Elvis operator to automatically unwrap an `Optional`.
 
 [source,Java]
 ----
