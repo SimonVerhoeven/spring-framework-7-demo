@@ -123,6 +123,12 @@ This is quite a useful enhancement when dealing with large volumes of data, give
 
 We can now add the new https://docs.spring.io/spring-framework/reference/7.0/languages/kotlin/coroutines.html#coroutines.propagation[PropagationContextElement] operator to our functions to enable context propagation. The Spring team is looking into ways to automate this in a future release.
 
+=== Google Gson support in WebFlux
+
+Two new codecs for JSON (de)serialization in WebFlux have been added: `GsonEncoder` & `GsonDecoder`.
+
+The Gson library itself does not support decoding JSON in a non-blocking manner, thus the `GsonDecoder` does not support decoding to `Flux<*>` types. It does however support `NDJSON` for streaming when serializing to JSON.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
