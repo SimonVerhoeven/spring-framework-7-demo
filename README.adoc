@@ -57,6 +57,9 @@ When a Servlet 6.1 compatible container is available, Undertow can still be used
 === CORS Pre-Flight requests behaviour change
 CORS Pre-Flight requests are no longer rejected when the CORS configuration is empty.
 
+=== WebClient behaviour changes for Reactor client
+The `Reactor` client when used with `WebClient` will now automatically opt-in for the system properties `https.proxyHost`  and `https.proxyPort` for proxy configuration.
+
 === Varia
 
 There have also been a wide variety of smaller changes:
