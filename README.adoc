@@ -19,6 +19,12 @@ Certain baselines have been raised, so keep these in mind if you're using them:
 
 == Upgrading
 
+=== `javax.annotation.*` and `javax.inject.*` annotations are no longer supported
+
+Support for these annotations in `javax` has been dropped, if your application still uses these please migrate to the `jakarta` equivalent.
+
+For example, `javax.annotation.PostConstruct` will become `jakarta.annotation.PostConstruct`.
+
 === SpringExtension - potentially breaking
 
 The `SpringExtension` which integrates the Spring TestContext Framework into JUnit Jupiter, has been adapted to use a test-method scoped `ExtensionContext`.
