@@ -10,12 +10,13 @@ Spring Framework 7 will be released in November 2025.
 Certain baselines have been raised, so keep these in mind if you're using them:
 
 * A Servlet 6.1 compatible container
-* JPA 3.2
-* Bean Validation 3.1
+* JPA 3.2 (Hibernate ORM 7.1/7.2)
+* Bean Validation 3.1 (Hibernate Validator 9.0/9.1)
 * GraalVM 24 with the https://www.graalvm.org/latest/reference-manual/native-image/metadata/[new extract reachability metadata format]
 * Kotlin 2.2
-*  Netty 4.2
+* Netty 4.2
 * JSONAssert 2.0
+* JUnit 6
 
 == Upgrading
 
