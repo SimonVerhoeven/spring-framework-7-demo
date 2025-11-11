@@ -54,6 +54,9 @@ A Servlet 6.1 compatible container is needed; this also means that the undertow 
 
 When a Servlet 6.1 compatible container is available, Undertow can still be used as a deployed server using the standard servlet support.
 
+=== CORS Pre-Flight requests behaviour change
+CORS Pre-Flight requests are no longer rejected when the CORS configuration is empty.
+
 === Varia
 
 There have also been a wide variety of smaller changes:
