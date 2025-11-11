@@ -69,6 +69,18 @@ There have also been a wide variety of smaller changes:
 * Removal of `OkHttp3 support`
 * Renaming of `RequestContext#jstPresent` protected static field to `JSTL_PRESENT`.
 
+=== Updated unified reachability metadata format for GraalVM native applications
+
+This release switches to the format being adopted by the GraalVM community.
+This means that we'll need to update our applications if we're contributing `RuntimeHints`.
+
+In practise these changes boil down to:
+
+* the resource hint syntax is now a glob pattern format rather than a `java.util.regex.Pattern` format
+* registration of excludes has been removed
+* registering a reflection hint or a type now also implies method, constructor and field introspection. Given this,  `ExecutableMode.INTROSPECT` and all `MemberCategory` values except `MemberCategory.INVOKE_*` have been deprecated as registering a type hint suffices. We can thus swap out `hints.reflection().registerType(MyType.class, MemberCategory.DECLARED_FIELDS);` with `hints.reflection().registerType(MyType.class);`
+* `MemberCategory.PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` have been renamed to `INVOKE_PUBLIC_FIELDS` and `INVOKE_DECLARED_FIELDS` respectively. Do keep in mind that you can just use simple type hints if they've only been configured for reflection.
+
 == New
 
 === JSpecify
