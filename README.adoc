@@ -3,7 +3,7 @@
 :toc-placement:
 :toclevels: 3
 
-Spring Framework 7 will be released in November 2025.
+Spring Framework 7 was released on the 13th of November 2025.
 
 == Minimum requirement changes
 
@@ -19,6 +19,8 @@ Certain baselines have been raised, so keep these in mind if you're using them:
 
 == Upgrading
 
+When upgrading to Spring Framework 7 there are certain (breaking) changes that we have to keep in mind.
+
 === `javax.annotation.*` and `javax.inject.*` annotations are no longer supported
 
 Support for these annotations in `javax` has been dropped, if your application still uses these please migrate to the `jakarta` equivalent.
@@ -30,7 +32,7 @@ For example, `javax.annotation.PostConstruct` will become `jakarta.annotation.Po
 The `SpringExtension` which integrates the Spring TestContext Framework into JUnit Jupiter, has been adapted to use a test-method scoped `ExtensionContext`.
 This change facilitates consistent dependency injection semantics in `@Nested` test class hierarchies.
 
-There are 2 cases in which you may notice some breaking tests:
+There are two cases in which you may notice some breaking tests:
 
 1) If you have custom `TestExecutionListener` implementations.
 In this case annotating the top-level class in such hierarchies with `@SpringExtensionConfig(useTestClassScopedExtensionContext = true)` should resolve the issue.
@@ -40,10 +42,6 @@ In this case annotating the top-level class in such hierarchies with `@SpringExt
 === Spring JCL has been retired
 
 This module has been removed in favour of Apache Commons logging, as this was a transitive dependency and the API calls aren't changing, you should experience no impact.
-
-=== Removal of support for `javax.annotation` and `java.inject`
-
-These annotations are no longer supported, and the `jakarta` equivalent should be used.
 
 === Removal of deprecated path mapping options
 
@@ -103,6 +101,8 @@ Some of these are:
 * putAll(HttpHeaders)
 
 == New
+
+As usual, there are a lot of new features. Personally, I'm very keen on the JSpecify and API versioning changes.
 
 === JSpecify
 
@@ -192,6 +192,8 @@ Spring will now leverage the new class-file API introduced in https://openjdk.or
 This change will be fully transparent for applications.
 
 == Thoughts
+
+This release once again moves the framework forward by quite a bit, and it's great to see certain standards such as JSpecify being embraced.
 
 == References
 
