@@ -85,7 +85,22 @@ In practise these changes boil down to:
 * the resource hint syntax is now a glob pattern format rather than a `java.util.regex.Pattern` format
 * registration of excludes has been removed
 * registering a reflection hint or a type now also implies method, constructor and field introspection. Given this,  `ExecutableMode.INTROSPECT` and all `MemberCategory` values except `MemberCategory.INVOKE_*` have been deprecated as registering a type hint suffices. We can thus swap out `hints.reflection().registerType(MyType.class, MemberCategory.DECLARED_FIELDS);` with `hints.reflection().registerType(MyType.class);`
-* `MemberCategory.PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` have been renamed to `INVOKE_PUBLIC_FIELDS` and `INVOKE_DECLARED_FIELDS` respectively. Do keep in mind that you can just use simple type hints if they've only been configured for reflection.
+* `MemberCategory.PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` have been renamed to `INVOKE_PUBLIC_FIELDS` and `INVOKE_DECLARED_FIELDS` respectively. Do keep in mind that you can use simple type hints if they've only been configured for reflection.
+
+=== HttpHeaders is no longer a MultiValueMap
+
+As underlying servers handle headers as a collection of pairs, and there are challenges with the behaviour, and performance of the current operations the `MultiValueMap` contract has been removed from the `HttpHeaders` API.
+
+This means that some methods have been removed.
+
+To help with this transition, `@eprecate` fallback methods have been introduced, but ideally try to transition away from these as soon as possible.
+
+Some of these are:
+
+* containsHeader(String headerName)
+* getOrEmpty
+* hasHeaderValues(String, List<String>)
+* putAll(HttpHeaders)
 
 == New
 
