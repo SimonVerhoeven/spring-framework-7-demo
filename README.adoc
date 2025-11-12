@@ -33,13 +33,13 @@ This change facilitates consistent dependency injection semantics in `@Nested` t
 There are 2 cases in which you may notice some breaking tests:
 
 1) If you have custom `TestExecutionListener` implementations.
-In this case annotatating the top-level class in such hierarchies with `@SpringExtensionConfig(useTestClassScopedExtensionContext = true)` should resolve the issue.
+In this case annotating the top-level class in such hierarchies with `@SpringExtensionConfig(useTestClassScopedExtensionContext = true)` should resolve the issue.
 
 2) In case you have a custom `TestExecutionListener` that overrides `prepareTestInstance(TestContext)` that suddenly no longer works, please alter the listener's implementation to look up the current test class via `testContext.getTestInstance().getClass()` instead of `testContext.getTestClass()`.
 
 === Spring JCL has been retired
 
-This module has been removed in favour of Apache Commons logging, as this was a transitive dependency and the API calls aren't changing you should experience no impact.
+This module has been removed in favour of Apache Commons logging, as this was a transitive dependency and the API calls aren't changing, you should experience no impact.
 
 === Removal of support for `javax.annotation` and `java.inject`
 
@@ -47,7 +47,7 @@ These annotations are no longer supported, and the `jakarta` equivalent should b
 
 === Removal of deprecated path mapping options
 
-Several path mapping options marked as deprecated in 6.0 have been removed such as:
+Several path mapping options marked as deprecated in 6.0 have been removed, such as:
 
 * `suffixPatternMatch`/`registeredSuffixPatternMatch` for annotated controller methods
 * `trailingSlashMatch` for extensions of `AbstractHandlerMapping`
@@ -63,12 +63,12 @@ When a Servlet 6.1 compatible container is available, Undertow can still be used
 === CORS Pre-Flight requests behaviour change
 CORS Pre-Flight requests are no longer rejected when the CORS configuration is empty.
 
-=== WebClient behaviour changes for Reactor client
+=== WebClient behaviour changes for Reactor Client
 The `Reactor` client when used with `WebClient` will now automatically opt-in for the system properties `https.proxyHost`  and `https.proxyPort` for proxy configuration.
 
 === Varia
 
-There have also been a wide variety of smaller changes:
+This release also contains a wide variety of smaller changes:
 
 * `ListenableFuture` in favour of `CompletableFuture`
 * Removal of `WebJars` support with `org.webjars:webjars-locator-core` in favour of `org.webjars:webjars-locator-lite`
@@ -96,7 +96,7 @@ In practise these changes boil down to:
 === API versioning
 
 Both Spring MVC and WebFlux now easily allow us to version our requests.
-We can configure how these versions are resolve, parsed, validated and even mark versions as deprecated to notify our consumers! The various `Client` classes such as `RestClient` and `WebTestClient` have also been enhanced so we can easily set the API version on requests.
+We can configure how these versions are resolved, parsed, validated and even mark versions as deprecated to notify our consumers! The various `Client` classes such as `RestClient` and `WebTestClient` have also been enhanced so we can easily set the API version on requests.
 
 === BeanRegistrar
 
@@ -174,7 +174,7 @@ As always, there are changes under the hood that developers might not notice, bu
 === Class-file API usage for Java 24+ applications
 
 Spring will now leverage the new class-file API introduced in https://openjdk.org/jeps/484[JEP-484] to read and write classes as Java bytecode instead of the classical reduced ASM fork that was being used.
-This change will be fully transparant for applications.
+This change will be fully transparent for applications.
 
 == Thoughts
 
