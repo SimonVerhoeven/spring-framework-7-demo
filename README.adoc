@@ -100,6 +100,12 @@ Some of these are:
 * hasHeaderValues(String, List<String>)
 * putAll(HttpHeaders)
 
+=== Updated Kotlinx Serialization JSON codecs autoconfiguration
+
+This change is applicable if you have a (transitive) dependency on the `org.jetbrains.kotlinx:kotlinx-serialization-json` dependency.
+
+Historically speaking, this has lead to some challenges if the library was used for JSON rather than Jackson. To resolve this, the Kotlinx Serialization JSON codecs and converters will only be auto-detected and configured if the library is on the classpath and Jackson is not present.
+
 == New
 
 As usual, there are a lot of new features. Personally, I'm very keen on the JSpecify and API versioning changes.
