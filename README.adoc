@@ -210,6 +210,16 @@ The default `DestinationResolver` has been changed to the new `SimpleDestination
 
 If we do need to enforce fresh resolution per call we'll need to explicitly configure `DynamicDestinationResolver`.
 
+=== Jackson 3
+
+The Spring team has transitioned the stack to default to Jackson 3.x, with 2 remaining for fallback purposes. Jackson 2.x support is now deprecated and has been scheduled for complete removal in version 7.2.
+
+When upgrading, we'll notice two changes:
+
+1) Jackson 3 introduces the new `tools.jackson` package, although essential annotations remain in `com.fasterxml.jackson` to ease the upgrade path.
+
+2) the `Jackson2ObjectMapperBuilder` has been removed, and we should switch to using Jackson's native builders, such as `JsonMapper.builder()` or `CBORMapper.builder()` for configuration.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
