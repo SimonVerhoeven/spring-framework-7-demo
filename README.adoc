@@ -234,6 +234,15 @@ The Spring Framework relies on reading class bytecode to gather essential applic
 
 As of this release, for applications running on Java 24 and later, Spring is adopting the platform's new https://openjdk.org/jeps/484[JEP 484: Class-File API] for this purpose. This is implemented through a new `ClassFileMetadataReader` `in spring-core`.
 
+=== Consistent proxy type defaulting and consistent opting out for specific beans
+
+The proxy behavior in Spring 7.0 has been aligned with Spring Boot by consistently applying `CGLIB` as the global default proxy type across all proxy processors, including those for
+`@Async`.
+
+If we need to customize this globally, we can now declare a `ProxyConfig` bean using the name `AutoProxyUtils.DEFAULT_PROXY_CONFIG_BEAN_NAME` to define application-context-wide settings.
+
+If we need to override the proxy type for an individual bean, the new `@Proxyable` annotation can be used. For instance, using `@Proxyable(INTERFACES)` allows a switch back to JDK dynamic proxies when the default is `CGLIB`, and the annotation also supports specifying custom proxy interfaces directly via `@Proxyable(interfaces=...)` which takes precedence over any context-wide default.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
