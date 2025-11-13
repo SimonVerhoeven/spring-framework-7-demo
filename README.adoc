@@ -204,6 +204,12 @@ This approach serves as an alternative to standard JPA setup and is particularly
 
 The Spring team has adopted Jakarta Servlet 6.1, and WebSocket 2.2 as new baselines for web applications. As part of this process they took the opportunity to update the HTTP mock support with `MockHttpServletRequest`/`MockHttpServletResponse` to better align with the behaviour described in the Servlet API. This is especially relevant when using null names and values in HTTP headers.
 
+=== JMS destination handling
+
+The default `DestinationResolver` has been changed to the new `SimpleDestinationResolver` which caches Session-resolved Queue and Topic instances. This is now also applied by default to JmsTemplate and listener containers.
+
+If we do need to enforce fresh resolution per call we'll need to explicitly configure `DynamicDestinationResolver`.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
