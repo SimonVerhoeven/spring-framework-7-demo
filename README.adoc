@@ -131,6 +131,32 @@ I do still recommend looking at the allowed patterns in the https://docs.spring.
 
 We can now prove an `OutputStream` for the request body through an `StreamingHttpOutputMessage.Body` method parameter, and also to consume the response through an `InputStream` or `ResponseEntity<InputStream>` return value.
 
+=== HTTP Interface Client configuration
+
+This release significantly simplifies the HTTP Interface Client configuration through new dedicated support, which is especially convenient if you have quite a number of HTTP interfaces and target hosts.
+
+This is achieved through `@ImportHttpServices` declarations that let applications group these services, and perform customization per group. The framework will transparently create a registry of client proxies and declare each proxy as a bean.
+
+For example:
+
+[,java]
+----
+@Configuration(proxyBeanMethods = false)
+@ImportHttpServices(group = "coffee", types = {Americano.class, Cortado.class})
+@ImportHttpServices(group = "tea", types = {Green.class, Oolong.class})
+static class HttpServicesConfiguration extends AbstractHttpServiceRegistrar {
+
+	@Bean
+	public RestClientHttpServiceGroupConfigurer groupConfigurer() {
+		return groups -> groups.filterByName("coffee", "tea")
+				.configureClient((group, builder) -> builder.defaultHeader("User-Agent", "My-Application"));
+	}
+
+}
+----
+
+As always, please also read the https://docs.spring.io/spring-framework/reference/7.0-SNAPSHOT/integration/rest-clients.html#rest-http-service-client-group-config[reference documentation].
+
 === BeanRegistrar
 
 More flexible bean registration has been a wish for many of us for a long time, and this release addresses it. The new `BeanRegistrar` contract allows us to apply more complex logic, and register multiple beans.
