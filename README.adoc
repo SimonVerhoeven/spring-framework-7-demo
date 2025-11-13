@@ -127,6 +127,10 @@ Previously there was one gap: the ability to match many path segments at the beg
 
 I do still recommend looking at the allowed patterns in the https://docs.spring.io/spring-framework/reference/7.0-SNAPSHOT/web/webmvc/mvc-controller/ann-requestmapping.html#mvc-ann-requestmapping-uri-templates[reference documentation].
 
+=== HTTP Interface Client support for InputStream and OutputStream
+
+We can now prove an `OutputStream` for the request body through an `StreamingHttpOutputMessage.Body` method parameter, and also to consume the response through an `InputStream` or `ResponseEntity<InputStream>` return value.
+
 === BeanRegistrar
 
 More flexible bean registration has been a wish for many of us for a long time, and this release addresses it. The new `BeanRegistrar` contract allows us to apply more complex logic, and register multiple beans.
