@@ -226,6 +226,14 @@ When upgrading, we'll notice two changes:
 
 2) the `Jackson2ObjectMapperBuilder` has been removed, and we should switch to using Jackson's native builders, such as `JsonMapper.builder()` or `CBORMapper.builder()` for configuration.
 
+=== Class-File API usage for Java 24+ applications
+
+This change should be transparent to application developers, but it's quite handy to know if you want to dive deeper into the internals.
+
+The Spring Framework relies on reading class bytecode to gather essential application metadata, such as information from `@Configuration` classes or annotations. Traditionally, this was achieved through a custom, reduced fork of ASM via the `MetadataReaderFactory` and `MetadataReader` API.
+
+As of this release, for applications running on Java 24 and later, Spring is adopting the platform's new https://openjdk.org/jeps/484[JEP 484: Class-File API] for this purpose. This is implemented through a new `ClassFileMetadataReader` `in spring-core`.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
