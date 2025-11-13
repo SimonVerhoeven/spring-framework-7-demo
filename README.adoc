@@ -168,6 +168,38 @@ Two new codecs for JSON (de)serialization in WebFlux have been added: `GsonEncod
 
 The Gson library itself does not support decoding JSON in a non-blocking manner, thus the `GsonDecoder` does not support decoding to `Flux<*>` types. It does however support `NDJSON` for streaming when serializing to JSON.
 
+=== JPA 3.2
+
+This release streamlines persistence dependency injection:
+
+* *Direct Injection*: You can now inject an EntityManager or EntityManagerFactory using @Inject or @Autowired.
+* *Qualifier Support*: Use qualifiers to select a specific persistence unit when multiple exist.
+* *Simplified Spring Configuration*: The LocalContainerEntityManagerFactoryBean now provides the EntityManager by default, making a separate SharedEntityManagerBean unnecessary.
+
+=== Spring JPA 3.2 and 4.0 Compatibility
+
+Spring has updated its JPA internals for JPA 3.2 and future 4.0 compatibility. The main change involves the MutablePersistenceUnitInfo class, which has been decoupled from the standard JPA interface.
+
+It no longer directly implements the standard JPA `PersistenceUnitInfo` interface. The class is now dedicated for use with `PersistenceUnitPostProcessor` only.
+
+For any custom bootstrapping code, we need to use the new `SpringPersistenceUnitInfo` class.
+We can convert this to the standard JPA interface by calling `SpringPersistenceUnitInfo#asStandardPersistenceUnitInfo()`. This method automatically adapts to the correct API (JPA 3.2 or 4.0) at runtime.
+
+The thought process behind this is to provide seamless support for JPA 4.0 in Spring Framework 7.1 without requiring changes to our configuration.
+
+=== Hibernate ORM 7.1/7.2 as a JPA provider
+
+Spring Framework 7.0 has updated its integration with Hibernate ORM to versions 7.1 and 7.2. As part of this update, the native Hibernate support has been refactored and moved from the `org.springframework.orm.hibernate5` package to `orm.jpa.hibernate`.
+
+This refined integration is not a full replacement for JPA but is designed to supplement it. It continues to support essential Hibernate-specific features that work alongside the JPA standard, including:
+
+* LocalSessionFactoryBean/Builder
+* HibernateTransactionManager
+* SpringBeanContainer
+* SpringSessionContext
+
+This approach serves as an alternative to standard JPA setup and is particularly useful for code that relies on Hibernate's `SessionFactory.getCurrentSession()` method.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
