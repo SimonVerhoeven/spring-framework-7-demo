@@ -119,6 +119,14 @@ As usual, there are a lot of new features. Personally, I'm very keen on the JSpe
 Both Spring MVC and WebFlux now easily allow us to version our requests.
 We can configure how these versions are resolved, parsed, validated and even mark versions as deprecated to notify our consumers! The various `Client` classes such as `RestClient` and `WebTestClient` have also been enhanced so we can easily set the API version on requests.
 
+=== Improved PathPattern matching
+
+In this release the legacy AntPathMatcher variant for matching HTTP request mappings has been deprecated. The migration away from this variant started in Spring 5 with the introduction of the `PathPattern` option which later become the default.
+
+Previously there was one gap: the ability to match many path segments at the beginning of the path such as `/**/foo/bar.html` which is now supported.
+
+I do still recommend looking at the allowed patterns in the https://docs.spring.io/spring-framework/reference/7.0-SNAPSHOT/web/webmvc/mvc-controller/ann-requestmapping.html#mvc-ann-requestmapping-uri-templates[reference documentation].
+
 === BeanRegistrar
 
 More flexible bean registration has been a wish for many of us for a long time, and this release addresses it. The new `BeanRegistrar` contract allows us to apply more complex logic, and register multiple beans.
