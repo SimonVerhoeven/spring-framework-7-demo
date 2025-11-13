@@ -200,6 +200,10 @@ This refined integration is not a full replacement for JPA but is designed to su
 
 This approach serves as an alternative to standard JPA setup and is particularly useful for code that relies on Hibernate's `SessionFactory.getCurrentSession()` method.
 
+=== Servlet 6.1 and WebSocket 2.2
+
+The Spring team has adopted Jakarta Servlet 6.1, and WebSocket 2.2 as new baselines for web applications. As part of this process they took the opportunity to update the HTTP mock support with `MockHttpServletRequest`/`MockHttpServletResponse` to better align with the behaviour described in the Servlet API. This is especially relevant when using null names and values in HTTP headers.
+
 == Deprecations
 
 * `RestTemplate` has been marked as deprecated in the reference documentation in favour of `RestClient`, and will formally be deprecated in Spring Framework 7.1. For further information, I recommend reading the https://spring.io/blog/2025/09/30/the-state-of-http-clients-in-spring["the state of HTTP clients"] blog post.
