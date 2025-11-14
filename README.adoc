@@ -119,6 +119,25 @@ As usual, there are a lot of new features. Personally, I'm very keen on the JSpe
 Both Spring MVC and WebFlux now easily allow us to version our requests.
 We can configure how these versions are resolved, parsed, validated and even mark versions as deprecated to notify our consumers! The various `Client` classes such as `RestClient` and `WebTestClient` have also been enhanced so we can easily set the API version on requests.
 
+[,java]
+----
+@GetMapping(
+        path = "version",
+        version = "1.1"
+)
+public String versionOne() {
+    return "one";
+}
+
+@GetMapping(
+        path = "version",
+        version = "1.1+"
+)
+public String versionLatest() {
+    return "latest";
+}
+----
+
 === Improved PathPattern matching
 
 In this release the legacy AntPathMatcher variant for matching HTTP request mappings has been deprecated. The migration away from this variant started in Spring 5 with the introduction of the `PathPattern` option which later become the default.
