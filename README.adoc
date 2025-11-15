@@ -160,12 +160,12 @@ The Spring Team has been trimming the fat from the `Spring Retry` project, and r
 Subsequently, they've merged the result into spring-core module, where we can now find the foundational support in the `org.springframework.core.retry` package.
 Here we can find classes such as `RetryTemplate`, `RetryPolicy` and the supporting classes.
 
-The `spring-context` module has a `@ConcurrencyLimit` annotation which is aligned with `core.retry`, alongside a `ConcurrencyLimit` which is based on the concurrency throttling support.
+The `spring-context` module has a `@Retryable` annotation which is aligned with `core.retry`, alongside a `@ConcurrencyLimit` annotation which is based on Spring's concurrency throttling support.
 Both of these can be enabled through the `@EnableResilientMethods` annotation on a @Configuration class.
 
-Those using a reactive stack will be happy to learn that `@Retryable` and its customization through annotation attributes automatically adapts to reactive methods with a reactive return type by decorating the pipeline with Reactor's retry capabilities. Imperative methods will be called through a `RetryTemplate` with a corresponding `@RetryPolicy`.
+Those using a reactive stack will be happy to learn that `@Retryable` and its customization through annotation attributes automatically adapts to reactive methods with a reactive return type by decorating the pipeline with Reactor's retry capabilities. Imperative methods will be called through a `RetryTemplate` with a corresponding `RetryPolicy`.
 
-For more details I recommend checkout out the https://docs.spring.io/spring/reference/7.0/core/resilience.html[Resilience reference documentation].
+For more details I recommend checking out the https://docs.spring.io/spring/reference/7.0/core/resilience.html[Resilience reference documentation].
 
 [source,java]
 ----
