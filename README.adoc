@@ -201,6 +201,15 @@ retryTemplate.execute(
         () -> jmsClient.destination("notifications").send(...));
 ----
 
+=== JPA 3.2 adaptation (and Hibernate ORM 7.2)
+
+As of this release `LocalEntityManagerFactoryBean` accepts a JPA 3.2 `PersistenceConfiguration` which enables richer bootstrapping without having to fall back to a `persistence.xml` file.
+If we pass in a `PersistenceConfiguration` to a `LocalContainerEntityManagerFactoryBean` it will be merged into its default persistence unit.
+In case of a `HibernatePersistenceConfiguration` the Hibernate 7.1 scanning configuration options will be detected as well.
+
+Transactional `Session` and `StatelessSession` proxy references are also exposed by `LocalSessionFactoryBean` for dependency injection, similar to the JPA 3.2 setup for `EntityManager` injection with `@Inject` or `@Autowired`.
+In case you decide to use `StatelessSession` it's recommended to use Hibernate ORM 7.2 and not 7.1, since this will allow a transactional `StatelessSession` to be derived from the current transactional `Session`.
+
 === HTTP Interface Client support for InputStream and OutputStream
 
 We can now prove an `OutputStream` for the request body through an `StreamingHttpOutputMessage.Body` method parameter, and also to consume the response through an `InputStream` or `ResponseEntity<InputStream>` return value.
